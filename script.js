@@ -1,8 +1,12 @@
+//global declarations
+
+// cart and account buttons
 const cartButton = document.querySelector("#cart");
 const cartEscape = document.querySelector("#cart-x");
 const cartList = document.querySelector("#cartList");
 const acc = document.querySelector("#acc");
 
+// subnav section (like hover)
 const navSub1 = document.querySelector("#sub-section1");
 const navSub2 = document.querySelector("#sub-section2");
 const navSub3 = document.querySelector("#sub-section3");
@@ -10,10 +14,12 @@ const navSub4 = document.querySelector("#sub-section4");
 
 const navSubMenu = document.querySelector("#nav-sub");
 
+// mobile hamburger menu
 const whopperButton = document.querySelector("#whopper");
 const menuEscape = document.querySelector("#whopper-x");
 const menuList = document.querySelector("#menuList");
 
+// mobile search section
 const mobileSearchButton = document.querySelector("#search-button")
 const mobileSearch = document.querySelector("#mobileSearch")
 
@@ -37,7 +43,7 @@ mobileSearchButton.addEventListener('click', showMobileSearch);
 
 
 
-
+// 
 function showMenu() {
 
   const menuClosed = menuList.classList.contains('invisible');

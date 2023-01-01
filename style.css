@@ -472,3 +472,34 @@ body {
   background: rgb(254,237,204);
   background: radial-gradient(circle, rgba(254,237,204,1) 0%, rgba(220,255,220,1) 100%);
 }
+
+
+/* main content */
+
+
+
+/* ads slider */
+
+.slide-ads{
+  display: flex;
+
+  height: 33rem;
+  width: 100vw;
+  margin:0px auto;
+
+
+  background-color: var(--main);
+}
+
+@media (min-width:481px) {
+  .slide-ads{
+    display: flex;
+
+    height: 33rem;
+    width: 90rem;
+    margin:0px auto;
+
+
+    background-color: var(--main);
+  }
+}
