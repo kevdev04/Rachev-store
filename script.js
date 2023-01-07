@@ -151,7 +151,9 @@ function showSlides(n) {
 }
 
 
-// carousel automatic
+// carousel automatic slide
 setInterval(function(){
   plusSlides(1);
 }, 5000);
+
+//

@@ -472,6 +472,7 @@ body {
 .nav-sub{
   height: 25rem;
   width: 100vw;
+  z-index: 20;
 
   border-bottom: 1px black solid;
 
@@ -492,6 +493,10 @@ body {
   position: relative;
   margin: auto;
   cursor: pointer;
+  z-index: 10;
+}
+.slider-img{
+  object-fit: cover;
 }
 
 @media (min-width:481px) {
