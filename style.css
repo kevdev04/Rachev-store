@@ -396,6 +396,8 @@ body {
 .nav-2{
   height: 5rem;
   width: 100vw;
+  margin: .5rem;
+  padding: .5rem;
 
   display: flex;
   justify-content: space-evenly;
@@ -434,7 +436,7 @@ body {
 .cart-main{
   height: 40rem;
   width: 35rem;
-  z-index: 10;
+  z-index: 20;
 
   position: absolute;
   margin-left: 70vw;
@@ -490,6 +492,8 @@ body {
 /* Slideshow container */
 .slideshow-container {
   max-width: 1000px;
+  height: 20rem;
+
   position: relative;
   margin: auto;
   cursor: pointer;
@@ -502,6 +506,7 @@ body {
 @media (min-width:481px) {
   .slideshow-container{
   max-width: 1000px;
+  height: 35rem;
   position: relative;
   margin: auto;
   }
@@ -581,4 +586,90 @@ body {
 @keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
+}
+
+
+/* main carousels  */
+
+
+.cards-container{
+  display: flex;
+  flex-direction: row;
+
+  
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+
+  height: 30rem;
+  width: 100vw;
+
+  gap: 2rem;
+
+  padding: 1rem;
+  margin: 0.5rem;
+}
+
+/* news section */
+
+.news-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 40rem;
+  width: 70vw;
+
+  gap: 2rem;
+
+  margin: 0 auto;
+  margin-top:  0rem;
+  padding: .5rem;
+}
+
+.news-title{
+  font-family: var(--font);
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+/* product-card */
+
+/* default card */
+.card-default{
+  min-height: 26rem;
+  min-width: 20rem;
+  border-radius: 2rem;
+  
+
+  background-color: var(--main);
+
+}
+
+.card-up{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16rem;
+  width: 20rem;
+  padding: 1rem
+}
+
+.img-product{
+  display: block;
+  height:15rem;
+  width: 17rem;
+}
+
+
+.card-down{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  height: 10rem;
+  width: 20rem;
+
 }

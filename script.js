@@ -13,6 +13,7 @@ const navSub3 = document.querySelector("#sub-section3");
 const navSub4 = document.querySelector("#sub-section4");
 
 const navSubMenu = document.querySelector("#nav-sub");
+const navTwo = document.querySelector("#nav-2");
 
 // mobile hamburger menu
 const whopperButton = document.querySelector("#whopper");
@@ -36,6 +37,7 @@ navSub1.addEventListener('mouseover', showSubNav);
 navSub2.addEventListener('mouseover', showSubNav);
 navSub3.addEventListener('mouseover', showSubNav);
 navSub4.addEventListener('mouseover', showSubNav);
+
 
 navSubMenu.addEventListener('mouseout', quitSubNav);
 
@@ -156,4 +158,6 @@ setInterval(function(){
   plusSlides(1);
 }, 5000);
 
-//
+
+//main carousels
+
