@@ -591,7 +591,26 @@ body {
 
 /* main carousels  */
 
+.product-carousel{
+  display: flex;
+  flex-direction: row;
+}
 
+.button-slide{
+  position: relative;
+  top: 13rem;
+  right: 2.15rem;
+  height: 4rem;
+  width: 4rem;
+
+  border: 1px solid var(--second);
+  border-radius: 2rem;
+  font-weight: 400;
+  font-size: 2.2rem;
+  cursor: pointer;
+}
+
+/* cards section */
 .cards-container{
   display: flex;
   flex-direction: row;
