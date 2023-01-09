@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap');
 
 :root {
   --main: #ffffff;
   --second: black;
   --font: 'Questrial', sans-serif;
+  --price: 'Oxygen', sans-serif;
   --bg: rgb(255,241,247);
 }
 
@@ -753,5 +755,54 @@ body {
 }
 
 @media (min-width:481px) {
+  .card-default{
+    min-height: 26rem;
+    min-width: 20rem;
+    border-radius: 2rem;
     
+  
+    background-color: var(--main);
+  
+  }
+  
+  .card-up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16rem;
+    width: 20rem;
+    padding: 1rem
+  }
+  
+  .img-product{
+    display: block;
+    height:13rem;
+    width: 15rem;
+  }
+  
+  
+  .card-down{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.7rem;
+  
+    height: 10rem;
+    width: 20rem;
+  
+  }
+  
+  .card-name{
+    text-align: center;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: 1.7rem;
+  }
+  .card-price{
+    font-family: var(--price);
+    font-weight: 700;
+    font-size: 2rem;
+    color:#5f5c5a;
+  }
 }
