@@ -27,11 +27,13 @@ const mobileSearch = document.querySelector("#mobileSearch")
 //cards container
 
 const cc = document.querySelector('#cc');
-const button = document.querySelector("#slide-button");
+const buttonRight = document.querySelector("#button-sr");
+const buttonLeft = document.querySelector("#button-sl");
 
 
 
 // EVENTS
+
 
 // hamburger 
 whopperButton.addEventListener('click', showMenu);
@@ -52,9 +54,17 @@ navSubMenu.addEventListener('mouseout', quitSubNav);
 mobileSearchButton.addEventListener('click', showMobileSearch);
 
 
+//buttons product carousel
+buttonRight.onclick = function () {
+  cc.scrollLeft += 270;
+};
+buttonLeft.onclick = function () {
+  cc.scrollLeft -= 270;
+};
 
 
-// 
+
+// menu
 function showMenu() {
 
 
