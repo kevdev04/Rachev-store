@@ -24,6 +24,14 @@ const menuList = document.querySelector("#menuList");
 const mobileSearchButton = document.querySelector("#search-button")
 const mobileSearch = document.querySelector("#mobileSearch")
 
+//cards container
+
+const cc = document.querySelector('#cc');
+const button = document.querySelector("#slide-button");
+
+
+
+// EVENTS
 
 // hamburger 
 whopperButton.addEventListener('click', showMenu);
@@ -42,6 +50,7 @@ navSub4.addEventListener('mouseover', showSubNav);
 navSubMenu.addEventListener('mouseout', quitSubNav);
 
 mobileSearchButton.addEventListener('click', showMobileSearch);
+
 
 
 
@@ -159,5 +168,75 @@ setInterval(function(){
 }, 5000);
 
 
-//main carousels
+//main product-cards
 
+const productList = [];
+
+productList.push({
+  name: "Jordan 4 UNC",
+  price: 399,
+  image: './img/s1.jpg',
+});
+productList.push({
+  name: "Jordan 4 infrared",
+  price: 299,
+  image: './img/s2.jpg',
+});
+productList.push({
+  name: "new balance 550 wh-gr",
+  price: 399,
+  image: './img/s3.jpg',
+});
+productList.push({
+  name: "Nike air uptempo",
+  price: 249,
+  image: './img/s4.jpg',
+});
+productList.push({
+  name: "Nike dunk panda",
+  price: 249,
+  image: './img/s5.jpg',
+});
+productList.push({
+  name: "Nike dunk playstation X Travis scott",
+  price: 249,
+  image: './img/s6.jpg',
+});
+
+function renderProducts(arr) {
+  for (product of arr) {
+    const cardDefault = document.createElement('div');
+    cardDefault.classList.add('card-default');
+  
+    const cardUp = document.createElement('div');
+    cardUp.classList.add('card-up');
+    
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.image);
+    productImg.classList.add('img-product');
+  
+    cardUp.appendChild(productImg);
+  
+    const cardDown = document.createElement('div');
+    cardDown.classList.add('card-down');
+  
+    const productPrice = document.createElement('a');
+    productPrice.innerText = '$' + product.price
+    productPrice.classList.add('card-price');
+
+    const productName = document.createElement('a');
+    productName.innerText = product.name;
+    productName.classList.add('card-name');
+  
+    cardDown.appendChild(productName);
+    cardDown.appendChild(productPrice);
+  
+    cardDefault.appendChild(cardUp);
+    cardDefault.appendChild(cardDown);
+  
+    cc.appendChild(cardDefault);
+  
+  }
+};
+
+renderProducts(productList);
