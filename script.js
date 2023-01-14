@@ -27,9 +27,11 @@ const mobileSearch = document.querySelector("#mobileSearch")
 //cards container
 
 const cc = document.querySelector('#cc');
+const cc2 = document.querySelector('#cc2');
 const buttonRight = document.querySelector("#button-sr");
 const buttonLeft = document.querySelector("#button-sl");
-
+const buttonRight2 = document.querySelector("#button-sr2");
+const buttonLeft2 = document.querySelector("#button-sl2");
 
 
 // EVENTS
@@ -60,6 +62,12 @@ buttonRight.onclick = function () {
 };
 buttonLeft.onclick = function () {
   cc.scrollLeft -= 270;
+};
+buttonRight2.onclick = function () {
+  cc2.scrollLeft += 270;
+};
+buttonLeft2.onclick = function () {
+  cc2.scrollLeft -= 270;
 };
 
 
@@ -182,8 +190,9 @@ setInterval(function(){
 
 const productList = [];
 
+
 productList.push({
-  name: "Jordan 4 UNC",
+  name: "Jordan 4 University Blue",
   price: 399,
   image: './img/s1.jpg',
 });
@@ -208,7 +217,40 @@ productList.push({
   image: './img/s5.jpg',
 });
 productList.push({
-  name: "Nike dunk playstation X Travis scott",
+  name: "Nike dunk playstation",
+  price: 249,
+  image: './img/s6.jpg',
+});
+
+const productList2 = [];
+
+productList2.push({
+  name: "Jordan 4 University Blue",
+  price: 399,
+  image: './img/s1.jpg',
+});
+productList2.push({
+  name: "Jordan 4 infrared",
+  price: 299,
+  image: './img/s2.jpg',
+});
+productList2.push({
+  name: "new balance 550 wh-gr",
+  price: 399,
+  image: './img/s3.jpg',
+});
+productList2.push({
+  name: "Nike air uptempo",
+  price: 249,
+  image: './img/s4.jpg',
+});
+productList2.push({
+  name: "Nike dunk panda",
+  price: 249,
+  image: './img/s5.jpg',
+});
+productList2.push({
+  name: "Nike dunk playstation",
   price: 249,
   image: './img/s6.jpg',
 });
@@ -234,12 +276,16 @@ function renderProducts(arr) {
     productPrice.innerText = '$' + product.price
     productPrice.classList.add('card-price');
 
+    const cardCartButton = document.createElement('a');
+    cardCartButton.classList.add('card-cartbutton');
+
     const productName = document.createElement('a');
     productName.innerText = product.name;
     productName.classList.add('card-name');
   
     cardDown.appendChild(productName);
     cardDown.appendChild(productPrice);
+    cardDown.appendChild(cardCartButton);
   
     cardDefault.appendChild(cardUp);
     cardDefault.appendChild(cardDown);
@@ -248,5 +294,44 @@ function renderProducts(arr) {
   
   }
 };
+function renderProducts2(arr) {
+  for (product of arr) {
+    const cardDefault = document.createElement('div');
+    cardDefault.classList.add('card-default');
+  
+    const cardUp = document.createElement('div');
+    cardUp.classList.add('card-up');
+    
+    const productImg = document.createElement('img');
+    productImg.setAttribute('src', product.image);
+    productImg.classList.add('img-product');
+  
+    cardUp.appendChild(productImg);
+  
+    const cardDown = document.createElement('div');
+    cardDown.classList.add('card-down');
+  
+    const productPrice = document.createElement('a');
+    productPrice.innerText = '$' + product.price
+    productPrice.classList.add('card-price');
 
+    const cardCartButton = document.createElement('a');
+    cardCartButton.classList.add('card-cartbutton');
+
+    const productName = document.createElement('a');
+    productName.innerText = product.name;
+    productName.classList.add('card-name');
+  
+    cardDown.appendChild(productName);
+    cardDown.appendChild(productPrice);
+    cardDown.appendChild(cardCartButton);
+  
+    cardDefault.appendChild(cardUp);
+    cardDefault.appendChild(cardDown);
+  
+    cc2.appendChild(cardDefault);
+  
+  }
+};
 renderProducts(productList);
+renderProducts2(productList2);
