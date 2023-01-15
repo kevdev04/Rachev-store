@@ -665,7 +665,7 @@ body {
   .cards-container{
 
     height: 30rem;
-    width: 68vw;
+    width: 69vw;
     gap: 2rem;
     
     overflow-y: hidden;
@@ -682,7 +682,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  height: 120rem;
+  height: 150rem;
   width: 100vw;
 
   gap: 1rem;
@@ -771,11 +771,35 @@ body {
   background-color: var(--second);
 }
 .merch-ad{
-  min-height: 30rem;
-  width: 100vw;
+  display: flex;
+  gap: 6rem;
+  min-height: 35rem;
+  width: 70vw;
+  margin: 10rem;
 
-  background-color: var(--main);
+  background-repeat: no-repeat;
+  background-image: url(./img/newseller.png);
+  background-size: 70vw;
 }
+.button-newseller{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 25rem;
+  left: 55rem;
+
+  height: 4rem;
+  width: 12rem;
+  color: var(--main);
+  font-family: var(--font);
+  font-size: 2rem;
+
+  border-radius: 2rem;
+  background-color: var(--second);
+  cursor: pointer;
+}
+
 
 @media (min-width:481px) {
   .card-default{
