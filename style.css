@@ -449,10 +449,86 @@ body {
   border-radius: 0rem 0rem 1rem 1rem;
   border: 1px black solid;
 }
+.head{
+  display: flex;
+  flex-direction: row;
+  gap: 8rem;
+  font-family: var(--font);
+  font-size: 2rem;
+}
+.cart-articles{
+  height: 27rem;
+  width: 34.8rem;
+  padding: .5rem;
+}
+.cart-p{
+  height: 4rem;
+  width: 34.8rem;
+  font-family: var(--font);
+  font-size: 2rem;
+  color: var(--second);
+  background-color: var(--main);
+  border: 2px solid var(--second);
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.cart-p:hover{
+  font-weight: 700;
+  color: var(--main);
+  background-color: var(--second);
+  font-size: 2.4rem;
+  
+}
+
+/* account menu */
+.acc-main{
+  height: 40rem;
+  width: 35rem;
+  z-index: 20;
+
+  position: absolute;
+  margin-left: 70vw;
+  background-color: var(--main);
+
+  border-radius: 0rem 0rem 1rem 1rem;
+  border: 1px black solid;
+}
+.acc-sections{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6rem;
+  height: 27rem;
+  width: 34.8rem;
+  padding: .5rem;
+}
+.acc-sections-f{
+  font-family: var(--font);
+  font-size: 2.4rem;
+  color: var(--second);
+  text-decoration: none;
+}
+.acc-sections-f:hover{
+  border-bottom: 2px solid var(--second);
+}
 @media (max-width:480px) {
   .cart-main{
     margin-left: 0vw;
     width: 100vw;
+  }
+  .acc-main{
+    margin-left: 0vw;
+    width: 100vw;
+  }
+  .cart-p{
+    width: 41.2rem;
+  }
+  .acc-sections{
+    width: 100vw;
+  }
+  .head{
+    gap:10.5rem;
   }
 }
 .cart-x{
@@ -772,22 +848,22 @@ body {
 }
 .merch-ad{
   display: flex;
-  gap: 6rem;
-  min-height: 35rem;
-  width: 70vw;
-  margin: 10rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  height: 25rem;
+  width: 100vw;
+  margin-top: 5rem;
+  margin-bottom: 0rem;
 
   background-repeat: no-repeat;
   background-image: url(./img/newseller.png);
-  background-size: 70vw;
+  background-size: contain;
 }
 .button-newseller{
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  top: 25rem;
-  left: 55rem;
 
   height: 4rem;
   width: 12rem;
@@ -874,5 +950,18 @@ body {
     background-image: url(./img/cart.png);
     border: 1px solid var(--second);
     background-size: 3.4rem;
+  }
+  .merch-ad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    min-height: 35rem;
+    width: 70vw;
+    margin: 10rem;
+  
+    background-repeat: no-repeat;
+    background-image: url(./img/newseller.png);
+    background-size: 70vw;
   }
 }

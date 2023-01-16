@@ -3,6 +3,7 @@ const main = document.querySelector("#main");
 // cart and account buttons
 const cartButton = document.querySelector("#cart");
 const cartEscape = document.querySelector("#cart-x");
+const cartEscape2 = document.querySelector("#cart-x2");
 const cartList = document.querySelector("#cartList");
 const acc = document.querySelector("#acc");
 
@@ -42,7 +43,8 @@ whopperButton.addEventListener('click', showMenu);
 menuEscape.addEventListener('click', quitMenu);
 cartButton.addEventListener('click', showCart);
 cartEscape.addEventListener('click', quitCart);
-acc.addEventListener('click', showCart);
+cartEscape2.addEventListener('click', quitCart2);
+acc.addEventListener('click', showAcc);
 
 //nav subMenu
 navSub1.addEventListener('mouseover', showSubNav);
@@ -99,12 +101,26 @@ function showCart() {
     mobileSearch.classList.add('invisible');
     fixSearchBar();
 }
+function showAcc() {
+  accList.classList.toggle('invisible');
+  menuList.classList.add('invisible');
+  mobileSearch.classList.add('invisible');
+  fixSearchBar();
+}
 function quitCart() {
-
+  
   const cartOpened = !cartList.classList.contains('invisible');
-
+  
   if (cartOpened) {
     cartList.classList.add('invisible');
+  }
+}
+function quitCart2() {
+
+  const accOpened = !accList.classList.contains('invisible');
+
+  if (accOpened) {
+    accList.classList.add('invisible');
   }
 }
 
