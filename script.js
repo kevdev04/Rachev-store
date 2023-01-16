@@ -12,8 +12,11 @@ const navSub1 = document.querySelector("#sub-section1");
 const navSub2 = document.querySelector("#sub-section2");
 const navSub3 = document.querySelector("#sub-section3");
 const navSub4 = document.querySelector("#sub-section4");
+const navSubTopics = document.querySelector("nav-st");
+const navSubSubtopics = document.querySelector("nav-sst");
 
 const navSubMenu = document.querySelector("#nav-sub");
+const nav1 = document.querySelector("#nav-1");
 const navTwo = document.querySelector("#nav-2");
 
 // mobile hamburger menu
@@ -53,7 +56,11 @@ navSub3.addEventListener('mouseover', showSubNav);
 navSub4.addEventListener('mouseover', showSubNav);
 
 
-navSubMenu.addEventListener('mouseout', quitSubNav);
+
+
+main.addEventListener('mouseover', quitSubNav);
+nav1.addEventListener('mouseover', quitSubNav);
+
 
 mobileSearchButton.addEventListener('click', showMobileSearch);
 
@@ -199,7 +206,7 @@ function showSlides(n) {
 // carousel automatic slide
 setInterval(function(){
   plusSlides(1);
-}, 5000);
+}, 3500);
 
 
 //main product-cards
@@ -349,5 +356,7 @@ function renderProducts2(arr) {
   
   }
 };
+renderProducts(productList);
+renderProducts2(productList2);
 renderProducts(productList);
 renderProducts2(productList2);
