@@ -37,8 +37,8 @@ const buttonLeft = document.querySelector("#button-sl");
 const buttonRight2 = document.querySelector("#button-sr2");
 const buttonLeft2 = document.querySelector("#button-sl2");
 
-
 // EVENTS
+
 
 
 // hamburger 
@@ -169,7 +169,7 @@ function fixSearchBar(){
 
 
 
-// slideshow ------------------------------------------------->
+// carousel ------------------------------------------------->
 
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -215,7 +215,7 @@ const productList = [];
 
 
 productList.push({
-  name: "Jordan 4 University Blue",
+  name: "Jordan 4 University",
   price: 399,
   image: './img/s1.jpg',
 });
@@ -248,7 +248,7 @@ productList.push({
 const productList2 = [];
 
 productList2.push({
-  name: "Jordan 4 University Blue",
+  name: "Jordan 4 University",
   price: 399,
   image: './img/s1.jpg',
 });
@@ -281,7 +281,7 @@ productList2.push({
 function renderProducts(arr) {
   for (product of arr) {
     const cardDefault = document.createElement('div');
-    cardDefault.classList.add('card-default');
+    cardDefault.classList.add('card-default'); 
   
     const cardUp = document.createElement('div');
     cardUp.classList.add('card-up');
@@ -295,14 +295,14 @@ function renderProducts(arr) {
     const cardDown = document.createElement('div');
     cardDown.classList.add('card-down');
   
-    const productPrice = document.createElement('a');
+    const productPrice = document.createElement('p');
     productPrice.innerText = '$' + product.price
     productPrice.classList.add('card-price');
 
     const cardCartButton = document.createElement('a');
     cardCartButton.classList.add('card-cartbutton');
 
-    const productName = document.createElement('a');
+    const productName = document.createElement('p');
     productName.innerText = product.name;
     productName.classList.add('card-name');
   
@@ -334,14 +334,16 @@ function renderProducts2(arr) {
     const cardDown = document.createElement('div');
     cardDown.classList.add('card-down');
   
-    const productPrice = document.createElement('a');
+    const productPrice = document.createElement('p');
     productPrice.innerText = '$' + product.price
     productPrice.classList.add('card-price');
 
     const cardCartButton = document.createElement('a');
     cardCartButton.classList.add('card-cartbutton');
+    cardCartButton.href = "#";
+    cardCartButton.setAttribute('data-id' , '1'); 
 
-    const productName = document.createElement('a');
+    const productName = document.createElement('p');
     productName.innerText = product.name;
     productName.classList.add('card-name');
   
@@ -360,3 +362,76 @@ renderProducts(productList);
 renderProducts2(productList2);
 renderProducts(productList);
 renderProducts2(productList2);
+
+
+// function add to cart
+
+let articulosCarrito = [];
+
+const cartArticles = document.querySelector("#cart-a-container")
+const newSection = document.querySelector("#new-section");
+const sendCartButton = document.querySelector("#card-cartbutton");
+const co = document.querySelector("#co");
+
+function addCart(e){
+  e.preventDefault();
+
+  if (e.target.classList.contains('card-cartbutton')) {
+    const choisedProduct = e.target.parentElement.parentElement;
+    readElements(choisedProduct);
+  }
+}
+
+function readElements(product){
+
+  const buttonId = document.getElementsByClassName('card-cartbutton');
+  
+  const productInfo = {
+    imagen: product.querySelector('img').src,
+    titulo: product.querySelector('.card-name').textContent,
+    precio: product.querySelector('.card-price').textContent,
+    cantidad: 1
+  }
+
+  //add the elements to array
+  articulosCarrito = [...articulosCarrito, productInfo];
+  console.log(articulosCarrito);
+  cartHTML();
+
+}
+
+// show the products in the cart
+function cartHTML() {
+
+  //clean html 
+  cleanHTML();
+  
+  // create html
+  articulosCarrito.forEach( product => {
+    const row = document.createElement('div');
+    row.classList.add('each-article');
+    row.innerHTML = `
+      <div>
+        <img src="${product.imagen}" width="60">
+        <p>${product.titulo}</p>
+      </div>
+      <p>${product.precio}</p>
+      <p>${product.cantidad}</p>
+      <div>
+        <button class="cart-x-mini">X</button>
+      </div>
+    `;
+
+    // add html to tbody
+    cartArticles.appendChild(row);
+  })
+}
+
+//delete products tbody
+function cleanHTML() {
+  while (cartArticles.firstChild) {
+    cartArticles.removeChild(cartArticles.firstChild)
+  }
+}
+
+newSection.addEventListener('click', addCart);
