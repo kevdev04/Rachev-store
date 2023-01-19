@@ -440,18 +440,43 @@ body {
 /* cart menu */
 
 .cart-main{
-  height: 50rem;
-  width: 40rem;
+  height: 100vh;
+  width: 100vw;
   z-index: 20;
 
-  position: absolute;
-  margin-left: 65vw;
+  position:fixed;
+  margin-left: 0;
   background-color: var(--main);
 
   border-radius: 0rem 0rem 1rem 1rem;
   border: 1px black solid;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
+
+@media (min-width:481px) {
+  .cart-main{
+    height: 100vh;
+    width: 40rem;
+    z-index: 20;
+  
+    position: fixed;
+    margin-left: 67.8vw;
+    background-color: var(--main);
+  
+    border-radius: 0rem 0rem 1rem 1rem;
+    border: 1px black solid;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  }
+}
+@media (min-width:1919px) {
+  .cart-main{
+    margin-left: 75.2vw;
+    width: 46rem;
+  }
+}
+
 .head{
   display: flex;
   flex-direction: row-reverse;
@@ -475,6 +500,11 @@ body {
   border: 2px solid var(--second);
   cursor: pointer;
   margin-top: 1rem;
+}
+@media (min-width:1919px) {
+  .cart-p {
+    width: 23.8vw;
+  }
 }
 .cart-p:hover{
   font-weight: 700;
@@ -517,16 +547,12 @@ body {
   border-bottom: 2px solid var(--second);
 }
 @media (max-width:480px) {
-  .cart-main{
-    margin-left: 0vw;
-    width: 100vw;
-  }
   .acc-main{
     margin-left: 0vw;
     width: 100vw;
   }
   .cart-p{
-    width: 100vw;
+    width: 99.5vw;
   }
   .acc-sections{
     width: 100vw;
@@ -570,8 +596,20 @@ body {
 
 /* cart articles container */
 
-.cart-container{
-  height: 40rem;
+#cart-container{
+  height: 73vh;
+}
+@media (min-width:481px) {
+  #cart-container{
+    height: 80vh;
+    width: 42rem;
+  }
+}
+@media (min-width:1919px) {
+  #cart-container{
+    height: 85vh;
+    width: 46rem;
+  }
 }
 #cart-subhead{
   display: flex;
@@ -597,9 +635,24 @@ h5{
   border-top: 1px solid rgb(236, 234, 234);
 }
 #cart-a-container{
-  height: 30rem;
+  height: 59vh;
+  width: 99vw;
   padding: 1rem;
   overflow-y: scroll;
+}
+@media (min-width:481px) {
+  #cart-a-container{
+    height: 45rem;
+    width: 31vw;
+    padding: 1rem;
+  }
+}
+@media (min-width:1919px) {
+  #cart-a-container{
+    height: 74vh;
+    width: 24vw;
+    padding: 1rem;
+  }
 }
 .cart-x-mini{
   display: flex;
@@ -803,8 +856,8 @@ p{
     right: 2.5rem;
     height: 4rem;
     width: 4rem;
-  
-    border: 1px solid rgba(229, 227, 227, 0.799);
+    border: 1px solid rgb(179, 179, 179);
+
     border-radius: 2rem;
     font-weight: 400;
     font-size: 2.2rem;
