@@ -450,11 +450,12 @@ body {
 
   border-radius: 0rem 0rem 1rem 1rem;
   border: 1px black solid;
+  overflow-x: hidden;
 }
 .head{
   display: flex;
   flex-direction: row-reverse;
-  gap: 10rem;
+  justify-content: space-between;
   font-family: var(--font);
   font-size: 2rem;
   height: 7rem;
@@ -525,13 +526,10 @@ body {
     width: 100vw;
   }
   .cart-p{
-    width: 41.2rem;
+    width: 100vw;
   }
   .acc-sections{
     width: 100vw;
-  }
-  .head{
-    gap:10.5rem;
   }
   .cart-articles{
     width: 100vw;
@@ -542,10 +540,6 @@ body {
 .cart-x{
   height: 5rem;
   width: 5rem;
-
-
-
-
   border: 1px solid var(--second);
   border-radius: 0 0 0 2rem;
   background-color: var(--second);
@@ -554,13 +548,30 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   cursor: pointer;
+}
 
+.cart-trash{
+  height: 5rem;
+  width: 5rem;
+  border: 1px solid var(--second);
+  border-radius: 0 0 2rem 0;
+  background-color: var(--second);
+  color: var(--main);
+  font-family: var(--font);
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  background-image: url(./img/tc.png);
+  background-repeat: no-repeat;
+  background-size: 2.7rem;
+  background-position-x: 1rem;
+  background-position-y: 1rem;
 }
 
 /* cart articles container */
 
-.cart-a-container{
-  height: 30rem;
+.cart-container{
+  height: 40rem;
 }
 #cart-subhead{
   display: flex;
@@ -582,10 +593,13 @@ h5{
   align-items: center;
   font-family: var(--font);
   font-size: 1.4rem;
+  border-bottom: 1px solid rgb(236, 234, 234);
+  border-top: 1px solid rgb(236, 234, 234);
 }
 #cart-a-container{
-  height: 25rem;
+  height: 30rem;
   padding: 1rem;
+  overflow-y: scroll;
 }
 .cart-x-mini{
   display: flex;
@@ -604,6 +618,17 @@ h5{
   font-weight: 700;
   cursor: pointer;
 
+}
+p{
+  margin: 0;
+}
+#total {
+  height: 5rem;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  font-family: var(--font);
+  font-size: 2rem;
 }
 
 
@@ -851,7 +876,7 @@ h5{
   justify-content: center;
   align-items: center;
 
-  height: 120rem;
+  height: 110rem;
   width: 100vw;
 
   gap: 1rem;
@@ -868,7 +893,7 @@ h5{
 }
 @media (min-width:481px) {
     .news-section{
-      height: 150rem;
+      height: 145rem;
     }
 }
 /* product-card */

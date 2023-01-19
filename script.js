@@ -218,31 +218,37 @@ productList.push({
   name: "Jordan 4 University",
   price: 399,
   image: './img/s1.jpg',
+  id: 1,
 });
 productList.push({
   name: "Jordan 4 infrared",
   price: 299,
   image: './img/s2.jpg',
+  id: 2,
 });
 productList.push({
   name: "new balance 550 wh-gr",
   price: 399,
   image: './img/s3.jpg',
+  id: 3,
 });
 productList.push({
   name: "Nike air uptempo",
   price: 249,
   image: './img/s4.jpg',
+  id: 4,
 });
 productList.push({
   name: "Nike dunk panda",
   price: 249,
   image: './img/s5.jpg',
+  id: 5,
 });
 productList.push({
   name: "Nike dunk playstation",
   price: 249,
   image: './img/s6.jpg',
+  id: 6,
 });
 
 const productList2 = [];
@@ -251,31 +257,37 @@ productList2.push({
   name: "Jordan 4 University",
   price: 399,
   image: './img/s1.jpg',
+  id: 1,
 });
 productList2.push({
   name: "Jordan 4 infrared",
   price: 299,
   image: './img/s2.jpg',
+  id: 2,
 });
 productList2.push({
   name: "new balance 550 wh-gr",
   price: 399,
   image: './img/s3.jpg',
+  id: 3,
 });
 productList2.push({
   name: "Nike air uptempo",
   price: 249,
   image: './img/s4.jpg',
+  id: 4,
 });
 productList2.push({
   name: "Nike dunk panda",
   price: 249,
   image: './img/s5.jpg',
+  id: 5,
 });
 productList2.push({
   name: "Nike dunk playstation",
   price: 249,
   image: './img/s6.jpg',
+  id: 6,
 });
 
 function renderProducts(arr) {
@@ -301,6 +313,10 @@ function renderProducts(arr) {
 
     const cardCartButton = document.createElement('a');
     cardCartButton.classList.add('card-cartbutton');
+    cardCartButton.href = "#";
+    cardCartButton.setAttribute('data-id' , product.id );
+    
+
 
     const productName = document.createElement('p');
     productName.innerText = product.name;
@@ -341,7 +357,8 @@ function renderProducts2(arr) {
     const cardCartButton = document.createElement('a');
     cardCartButton.classList.add('card-cartbutton');
     cardCartButton.href = "#";
-    cardCartButton.setAttribute('data-id' , '1'); 
+    cardCartButton.setAttribute('data-id' , product.id );
+
 
     const productName = document.createElement('p');
     productName.innerText = product.name;
@@ -364,7 +381,7 @@ renderProducts(productList);
 renderProducts2(productList2);
 
 
-// function add to cart
+// function add to cart ----------------------------------------->
 
 let articulosCarrito = [];
 
@@ -372,6 +389,29 @@ const cartArticles = document.querySelector("#cart-a-container")
 const newSection = document.querySelector("#new-section");
 const sendCartButton = document.querySelector("#card-cartbutton");
 const co = document.querySelector("#co");
+
+newSection.addEventListener('click', addCart);
+
+// delete cart articles
+cartArticles.addEventListener('click', deleteArticle)
+function deleteArticle(e) {
+  if(e.target.classList.contains('cart-x-mini')) {
+    const productId = e.target.getAttribute('data-id');
+    
+    //delete of the array by the data-id
+    articulosCarrito = articulosCarrito.filter( product => product.id !== productId);
+    cartHTML();
+  }
+}
+
+//delete all the cart
+const trashBtn = document.querySelector('#cart-trash');
+trashBtn.addEventListener('click', () => {
+  articulosCarrito = [];
+  cleanHTML();
+})
+
+
 
 function addCart(e){
   e.preventDefault();
@@ -384,17 +424,33 @@ function addCart(e){
 
 function readElements(product){
 
-  const buttonId = document.getElementsByClassName('card-cartbutton');
   
   const productInfo = {
     imagen: product.querySelector('img').src,
     titulo: product.querySelector('.card-name').textContent,
     precio: product.querySelector('.card-price').textContent,
-    cantidad: 1
+    id: product.querySelector('a').getAttribute('data-id'),
+    cantidad: 1,
   }
 
-  //add the elements to array
-  articulosCarrito = [...articulosCarrito, productInfo];
+  //check if one element already exists
+  const exist = articulosCarrito.some( product => product.id === productInfo.id);
+  if (exist) {
+    const products = articulosCarrito.map( product => {
+      if (product.id === productInfo.id) {
+        product.cantidad++
+        return product;
+      } else {
+        return product;
+      }
+    } );
+    articulosCarrito = [...products];  
+  }else {
+    //add the elements to array
+    articulosCarrito = [...articulosCarrito, productInfo];
+  }
+
+  
   console.log(articulosCarrito);
   cartHTML();
 
@@ -407,18 +463,20 @@ function cartHTML() {
   cleanHTML();
   
   // create html
+
   articulosCarrito.forEach( product => {
+    const {imagen,titulo,precio,cantidad,id} = product;
     const row = document.createElement('div');
     row.classList.add('each-article');
     row.innerHTML = `
       <div>
-        <img src="${product.imagen}" width="60">
-        <p>${product.titulo}</p>
+        <img src="${imagen}" width="60">
+        <p>${titulo}</p>
       </div>
-      <p>${product.precio}</p>
-      <p>${product.cantidad}</p>
+      <p>${precio}</p>
+      <p>${cantidad}</p>
       <div>
-        <button class="cart-x-mini">X</button>
+        <button class="cart-x-mini" data-id="${id}">X</button>
       </div>
     `;
 
@@ -433,5 +491,3 @@ function cleanHTML() {
     cartArticles.removeChild(cartArticles.firstChild)
   }
 }
-
-newSection.addEventListener('click', addCart);
