@@ -108,6 +108,12 @@ function showCart() {
     mobileSearch.classList.add('invisible');
     fixSearchBar();
 }
+function showCart2() {
+  cartList.classList.remove('invisible');
+  menuList.classList.add('invisible');
+  mobileSearch.classList.add('invisible');
+  fixSearchBar();
+}
 function showAcc() {
   accList.classList.toggle('invisible');
   menuList.classList.add('invisible');
@@ -391,6 +397,12 @@ const sendCartButton = document.querySelector("#card-cartbutton");
 const co = document.querySelector("#co");
 
 newSection.addEventListener('click', addCart);
+//show local storage products
+document.addEventListener("DOMContentLoaded", () => {
+  articulosCarrito = JSON.parse(localStorage.getItem('cart')) || [];
+
+  cartHTML();
+})
 
 // delete cart articles
 cartArticles.addEventListener('click', deleteArticle)
@@ -419,6 +431,7 @@ function addCart(e){
   if (e.target.classList.contains('card-cartbutton')) {
     const choisedProduct = e.target.parentElement.parentElement;
     readElements(choisedProduct);
+    showCart2();
   }
 }
 
@@ -461,19 +474,28 @@ function cartHTML() {
 
   //clean html 
   cleanHTML();
+
+
+
+
+
   
+
   // create html
 
   articulosCarrito.forEach( product => {
     const {imagen,titulo,precio,cantidad,id} = product;
     const row = document.createElement('div');
+    
+
     row.classList.add('each-article');
+    row.setAttribute('id', 'each-article');
     row.innerHTML = `
       <div>
         <img src="${imagen}" width="60">
         <p>${titulo}</p>
       </div>
-      <p>${precio}</p>
+      <p class="tp">${precio}</p>
       <p>${cantidad}</p>
       <div>
         <button class="cart-x-mini" data-id="${id}">X</button>
@@ -483,6 +505,14 @@ function cartHTML() {
     // add html to tbody
     cartArticles.appendChild(row);
   })
+  //cart local storage
+  syncStorage();
+}
+
+
+
+function syncStorage() {
+  localStorage.setItem('cart',JSON.stringify(articulosCarrito));
 }
 
 //delete products tbody
@@ -490,4 +520,6 @@ function cleanHTML() {
   while (cartArticles.firstChild) {
     cartArticles.removeChild(cartArticles.firstChild)
   }
+  syncStorage();
 }
+

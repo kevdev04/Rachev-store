@@ -963,10 +963,12 @@ p{
   border: 1px solid var(--second);
   background-image: url(./img/bag-card.png);
   background-size: 2rem;
-  
   background-position: 50%;
   background-repeat: no-repeat;
   background-color: var(--second);
+}
+.card-cartbutton:hover{
+  background-image: url(./img/check.png);
 }
 .merch-ad{
   display: flex;
@@ -1195,5 +1197,30 @@ h4{
       justify-content: center;
       gap: 5rem;
     }
+}
+
+
+/* custom scrollbar */
+
+/* width */
+#cart-a-container::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+#cart-a-container::-webkit-scrollbar-track {
+  border-radius: 10px;
+
+}
+
+/* Handle */
+#cart-a-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, rgba(97,96,96,1) 0%, rgba(0,0,0,1) 100%);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+#cart-a-container::-webkit-scrollbar-thumb:hover {
+    border: var(--main) solid 1px;
 }
 
