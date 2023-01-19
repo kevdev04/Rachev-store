@@ -972,6 +972,7 @@ p{
 }
 .merch-ad{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2rem;
@@ -984,20 +985,47 @@ p{
   background-image: url(./img/newseller.png);
   background-size: contain;
 }
+.merch-ad-up {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0rem;
+}
+.merch-ad-down {
+  display: flex;
+  flex-direction: row;
+
+  
+}
 .button-newseller{
   display: flex;
   justify-content: center;
   align-items: center;
 
-  height: 4rem;
-  width: 12rem;
+  border-radius: 0 1rem 1rem 0;
+
+  height: 3.5rem;
+  width: 10rem;
   color: var(--main);
   font-family: var(--font);
   font-size: 2rem;
 
-  border-radius: 2rem;
   background-color: var(--second);
   cursor: pointer;
+}
+#email {
+  border-radius: 1rem 0 0 1rem;
+
+  height: 3.5rem;
+  width: 14rem;
+  font-family: var(--font);
+  font-size: 2rem;
+  border: 1px solid var(--second);
+}
+
+@media (min-width:481px) {
+    #email {
+      width: 20rem;
+    }
 }
 
 
@@ -1215,8 +1243,8 @@ h4{
 
 /* Handle */
 #cart-a-container::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, rgba(97,96,96,1) 0%, rgba(0,0,0,1) 100%);
-  border-radius: 10px;
+  background: var(--second);
+  border-radius: 5px;
 }
 
 /* Handle on hover */

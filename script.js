@@ -463,8 +463,6 @@ function readElements(product){
     articulosCarrito = [...articulosCarrito, productInfo];
   }
 
-  
-  console.log(articulosCarrito);
   cartHTML();
 
 }
@@ -474,7 +472,6 @@ function cartHTML() {
 
   //clean html 
   cleanHTML();
-
 
 
 
@@ -522,4 +519,6 @@ function cleanHTML() {
   }
   syncStorage();
 }
+
+// email validation
 
