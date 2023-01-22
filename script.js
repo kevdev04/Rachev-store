@@ -474,10 +474,6 @@ function cartHTML() {
   cleanHTML();
 
 
-
-
-  
-
   // create html
 
   articulosCarrito.forEach( product => {
@@ -519,18 +515,3 @@ function cleanHTML() {
   syncStorage();
 }
 
-// total 
-const singlePrice = document.querySelector('.tp')
-const tpPlace = document.querySelector('#total-price');
-tpPlace.innerText = "3";
-
-// function calculatePrice() {
-//   if(cartArticles.classList.contains('tp')) {
-    
-    
-    
-//     //delete of the array by the data-id
-//     articulosCarrito = articulosCarrito.filter( product => product.id !== productId);
-    
-//   }
-// }
