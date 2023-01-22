@@ -295,19 +295,20 @@ body {
 @media (max-width:480px) {
   .searchArea-mobile{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
 
-    height: 25rem;
-    width: 35rem;
+    height: 50rem;
+    width: 39rem;
 
     margin:0px auto;
     margin-top: 2rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
 
     background-color: var(--main);
     border: solid 1px var(--second);
+    padding: 2rem;
   }
   .search-bar-mobile{
     display: flex;
@@ -322,7 +323,23 @@ body {
     border-bottom: 1px solid var(--second);
     background-color: var(--main);
   
-  }  
+  }
+  .s-links {
+    height: 20rem;
+    margin-top: 4rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+
+  }
+  .s-link {
+    font-family: var(--font);
+    font-size: 2rem;
+
+    text-decoration: none;
+  }
 }
 
 @media (min-width:481px) {
@@ -485,8 +502,13 @@ body {
   font-size: 2rem;
   height: 7rem;
 }
+@media (min-width:481px) {
+  .head-acc{
+    margin-left: 12rem;
+  }
+}
 .head-acc{
-  margin-left: 12rem;
+  margin-left: 16.5rem;
 }
 .cart-articles{
   height: 27rem;
@@ -520,7 +542,7 @@ body {
 
 .cart-pp{
   height: 4rem;
-  width: 35rem;
+  width: 41rem;
   font-family: var(--font);
   font-size: 2rem;
   color: var(--second);
@@ -535,6 +557,21 @@ body {
   background-color: var(--second);
   font-size: 2.4rem;
   
+}
+
+@media (min-width:481px) {
+  .cart-pp{
+    height: 4rem;
+    width: 35rem;
+    font-family: var(--font);
+    font-size: 2rem;
+    color: var(--second);
+    background-color: var(--main);
+    border: 2px solid var(--second);
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+    
 }
 
 /* account menu */
