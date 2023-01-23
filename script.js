@@ -37,6 +37,24 @@ const buttonLeft = document.querySelector("#button-sl");
 const buttonRight2 = document.querySelector("#button-sr2");
 const buttonLeft2 = document.querySelector("#button-sl2");
 
+// search section
+const searchX = document.querySelector('#search-x');
+searchX.addEventListener('click', quitSearch);
+function quitSearch() {
+  mobileSearch.classList.add('invisible');
+  fixSearchBar();
+}
+
+//formulary newseller
+const buttonNewseller = document.querySelector('#b-new');
+buttonNewseller.addEventListener('click', submitEmail);
+const emailAlert = document.querySelector('#email-alert');
+
+
+function submitEmail() {
+  emailAlert.innerText = 'Successful registration!'
+}
+
 // EVENTS
 
 
@@ -445,6 +463,7 @@ function readElements(product){
     id: product.querySelector('a').getAttribute('data-id'),
     cantidad: 1,
   }
+  
 
   //check if one element already exists
   const exist = articulosCarrito.some( product => product.id === productInfo.id);
@@ -462,6 +481,12 @@ function readElements(product){
     //add the elements to array
     articulosCarrito = [...articulosCarrito, productInfo];
   }
+  const totalPrice = document.querySelector('#total-price');
+  const totalAmount = document.querySelector('#total-amount');
+  totalPrice.innerText = productInfo.precio + productInfo.precio
+  totalAmount.innerText = productInfo.cantidad
+  console.log(productInfo.precio);
+  console.log(productInfo.cantidad);
 
   cartHTML();
 
@@ -496,6 +521,8 @@ function cartHTML() {
 
     // add html to tbody
     cartArticles.appendChild(row);
+    const eachArticle = document.querySelector('.each-article')
+    
   })
   //cart local storage
   syncStorage();

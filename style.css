@@ -310,8 +310,24 @@ body {
     border: solid 1px var(--second);
     padding: 2rem;
   }
+  .search-x{
+    height: 5rem;
+    width: 5rem;
+    position: relative;
+    top: -2rem;
+    right: 16.9rem;
+    border: 1px solid var(--second);
+    border-radius: 1rem 0 2rem 0;
+    background-color: var(--second);
+    color: var(--main);
+    font-family: var(--font);
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
   .search-bar-mobile{
     display: flex;
+    justify-content: space-around;
     width: 30rem;
   }
   
@@ -337,7 +353,7 @@ body {
   .s-link {
     font-family: var(--font);
     font-size: 2rem;
-
+    color: rgb(207, 207, 207);
     text-decoration: none;
   }
 }
@@ -504,11 +520,12 @@ body {
 }
 @media (min-width:481px) {
   .head-acc{
-    margin-left: 12rem;
+    position: relative;
+    right: 4rem;
   }
 }
 .head-acc{
-  margin-left: 16.5rem;
+  margin-left: 16rem;
 }
 .cart-articles{
   height: 27rem;
@@ -738,6 +755,7 @@ p{
 #total {
   height: 5rem;
   display: flex;
+  flex-direction: row;
   justify-content:space-around;
   align-items: center;
   font-family: var(--font);
@@ -989,13 +1007,13 @@ p{
   justify-content: center;
   align-items: center;
 
-  height: 110rem;
+  height: 115rem;
   width: 100vw;
 
   gap: 1rem;
 
   margin: 0 auto;
-  margin-top:  -5rem;
+  margin-top:  -2rem;
   padding: .5rem;
 }
 
@@ -1091,8 +1109,7 @@ p{
   gap: 2rem;
   height: 25rem;
   width: 100vw;
-  margin-top: 5rem;
-  margin-bottom: 0rem;
+  
 
   background-repeat: no-repeat;
   background-image: url(./img/newseller.png);
@@ -1103,6 +1120,14 @@ p{
   flex-direction: row-reverse;
   gap: 0rem;
 }
+
+@media (min-width:481px) {
+  .merch-ad-up {
+    position: relative;
+    top: 4rem;
+  }
+}
+
 .merch-ad-down {
   display: flex;
   flex-direction: row;
@@ -1139,6 +1164,11 @@ p{
     #email {
       width: 20rem;
     }
+}
+#email-alert{
+  font-family: var(--font);
+  font-size: 1.2rem;
+  color: var(--second);
 }
 
 
@@ -1365,3 +1395,6 @@ h4{
     border: var(--main) solid 1px;
 }
 
+.opaco{
+  filter: blur(10%);
+}

@@ -24,7 +24,11 @@
             <h5>amount</h5>
       </div>
       <div id="cart-a-container"></div>
-      
+      <div id="total">
+        <p>Total</p>
+        <p id="total-price"></p>
+        <p id="total-amount">2</p>
+      </div>
     </div>
     <button id="co" class="cart-p">Checkout</button>
 
@@ -56,6 +60,7 @@
   </nav>
 
   <div class="searchArea-mobile invisible" id="mobileSearch">
+    <button id="search-x" class="search-x">X</button>
     <div class="search-bar-mobile">
       <input class="search-field-mobile" type="search" placeholder="jordan 4">
       <input class="search-button" type="submit" value="">
@@ -128,7 +133,7 @@
     </div>
   </div>
 
-  <main id="main">
+  <main id="main" class="opaco">
     
 
         <!-- Slideshow container -->
@@ -173,11 +178,12 @@
 
         <div class="merch-ad">
           <div class="merch-ad-up">
-            <a type="submit" class="button-newseller">Subscribe</a>
+            <a type="submit" id="b-new" class="button-newseller">Subscribe</a>
             <div class="merch-ad-down">
               <input id="email" class="" type="email" name="email" placeholder="Your Email"/>
             </div>
           </div>
+          <p id="email-alert"></p>
         </div>
 
         <div class="product-carousel">
