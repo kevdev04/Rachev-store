@@ -1,5 +1,7 @@
 //global declarations
 const main = document.querySelector("#main");
+const nav = document.querySelector("#nav");
+const footer = document.querySelector("#footer");
 // cart and account buttons
 const cartButton = document.querySelector("#cart");
 const cartEscape = document.querySelector("#cart-x");
@@ -101,15 +103,11 @@ buttonLeft2.onclick = function () {
 
 // menu
 function showMenu() {
-
-
     menuList.classList.toggle('invisible');
     cartList.classList.add('invisible');
-
 }
 
 function quitMenu() {
-
   const menuOpened = !menuList.classList.contains('invisible');
 
   if (menuOpened) {
@@ -117,6 +115,19 @@ function quitMenu() {
   }
 }
 
+// blur screen
+function blurScreen() {
+  const cartOpened = !cartList.classList.contains("invisible")
+  if (cartOpened) {
+    main.classList.add('opaco');
+    nav.classList.add('opaco');
+    footer.classList.add('opaco');
+  } else {
+    main.classList.remove('opaco');
+    nav.classList.remove('opaco');
+    footer.classList.remove('opaco');
+  }
+}
 
 // cart
 
@@ -125,6 +136,7 @@ function showCart() {
     menuList.classList.add('invisible');
     mobileSearch.classList.add('invisible');
     fixSearchBar();
+    blurScreen();
 }
 function showCart2() {
   cartList.classList.remove('invisible');
@@ -145,6 +157,7 @@ function quitCart() {
   if (cartOpened) {
     cartList.classList.add('invisible');
   }
+  blurScreen();
 }
 function quitCart2() {
 

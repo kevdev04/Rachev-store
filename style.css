@@ -1417,5 +1417,5 @@ h4{
 }
 
 .opaco{
-  filter: blur(10%);
+  filter: blur(10px);
 }
