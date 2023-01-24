@@ -847,7 +847,7 @@ p{
   position: relative;
   margin: auto;
   cursor: pointer;
-  z-index: 10;
+  z-index: 1;
 }
 .slider-img{
   object-fit: cover;
@@ -856,7 +856,7 @@ p{
 
 @media (min-width:481px) {
   .slideshow-container{
-  max-width: 1000px;
+  min-width: 130rem;
   height: 35rem;
   position: relative;
   margin: auto;
@@ -865,8 +865,10 @@ p{
 
 @media (min-width:481px) {
   .slider-img{
-    height: 35rem;
-    border: none;
+    height: 39rem;
+
+    
+    
   }
 }
 
@@ -1010,9 +1012,10 @@ p{
 @media (min-width:481px) {
   .cards-container{
 
-    height: 30rem;
-    width: 69vw;
+    height: 40rem;
+    width: 70vw;
     gap: 2rem;
+    
     
     overflow-y: hidden;
     overflow-x: hidden;
@@ -1045,7 +1048,7 @@ p{
 }
 @media (min-width:481px) {
     .news-section{
-      height: 145rem;
+      height: 160rem;
     }
 }
 /* product-card */
@@ -1122,6 +1125,7 @@ p{
 .card-cartbutton:hover{
   background-image: url(./img/check.png);
 }
+
 .merch-ad{
   display: flex;
   flex-direction: column;
@@ -1195,12 +1199,12 @@ p{
 
 @media (min-width:481px) {
   .card-default{
-    min-height: 26rem;
-    min-width: 20rem;
-    border-radius: 2rem;
-    border: 1px solid var(--second);
+    min-height: 36rem;
+    min-width: 25rem;
+    border-radius: .5rem;
+    border: 1px solid rgb(136, 136, 136);
     
-  
+    
     background-color: var(--main);
   
   }
@@ -1226,10 +1230,10 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    gap: 4.5rem;
     
   
-    height: 13rem;
+    height: 19rem;
     width: 20rem;
     margin-top: -4.5rem;
     border-radius: 0 0 2rem 2rem;
@@ -1241,18 +1245,18 @@ p{
     font-family: var(--font);
     color: var(--second);
     font-weight: 400;
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
   .card-price{
     font-family: var(--price);
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color:var(--second)
   }
   
   .card-cartbutton{
     height: 4rem;
-    width:10rem;
+    width:15rem;
     background-color: var(--main);
     background-image: url(./img/cart.png);
     border: 1px solid var(--second);
@@ -1260,12 +1264,13 @@ p{
     cursor: pointer;
   }
   .card-cartbutton:hover{
-    height: 4rem;
-    width: 10rem;
-    background-color: var(--main);
     background-image: url(./img/cart.png);
-    border: 1px solid var(--second);
+    border: 2px solid var(--second);
     background-size: 3.4rem;
+  }
+  .card-cartbutton:active {
+    background-image: url(./img/check.png);
+    background-color: var(--second);
   }
   .merch-ad{
     display: flex;

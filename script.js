@@ -243,7 +243,7 @@ function showSlides(n) {
 // carousel automatic slide
 setInterval(function(){
   plusSlides(1);
-}, 3500);
+}, 4000);
 
 
 //main product-cards
@@ -264,7 +264,7 @@ productList.push({
   id: 2,
 });
 productList.push({
-  name: "new balance 550 wh-gr",
+  name: "new balance 550",
   price: 399,
   image: './img/s3.jpg',
   id: 3,
@@ -303,7 +303,7 @@ productList2.push({
   id: 2,
 });
 productList2.push({
-  name: "new balance 550 wh-gr",
+  name: "new balance 550",
   price: 399,
   image: './img/s3.jpg',
   id: 3,
