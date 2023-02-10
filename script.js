@@ -8,6 +8,10 @@ const cartEscape = document.querySelector("#cart-x");
 const cartEscape2 = document.querySelector("#cart-x2");
 const cartList = document.querySelector("#cartList");
 const acc = document.querySelector("#acc");
+const purchaseBttn = document.querySelector('#co');
+const spinnerLoader = document.querySelector('#spinner');
+const spinnerLoaderSub = document.querySelector('#spinner-sub');
+
 
 // subnav section (like hover)
 const navSub1 = document.querySelector("#sub-section1");
@@ -76,7 +80,7 @@ navSub3.addEventListener('mouseover', showSubNav);
 navSub4.addEventListener('mouseover', showSubNav);
 
 
-
+purchaseBttn.addEventListener('click', spinnerAnimation);
 
 main.addEventListener('mouseover', quitSubNav);
 nav1.addEventListener('mouseover', quitSubNav);
@@ -168,6 +172,30 @@ function quitCart2() {
   }
 }
 
+function spinnerAnimation() {
+  const cartContainer = document.querySelector('#cart-container');
+
+  spinnerLoader.classList.remove('invisible');
+  cartContainer.classList.add('opaco')
+  
+  setTimeout(function(){
+    cartCheck();
+  }, 2000);
+
+  setTimeout(function(){
+    articulosCarrito = [];
+    cleanHTML();
+    actualizarPrecioTotal();
+    location.reload();
+  }, 3000);
+
+}
+function cartCheck() {
+  spinnerLoaderSub.classList.remove('spinner');
+  spinnerLoaderSub.classList.add('spinner-checked');
+  spinnerLoader.classList.remove('spinner-overlay')
+  spinnerLoader.classList.add('spinner-overlay-checked')
+  }
 // nav
 function showSubNav() {
   const categoryHover = navSubMenu.classList.contains('invisible');
@@ -436,11 +464,25 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function actualizarPrecioTotal() {
-  let total = 0;
-  for (let i = 0; i < articulosCarrito.length; i++) {
-    total += parseFloat(articulosCarrito[i].precio.replace("$", "")) * articulosCarrito[i].cantidad;
-  }
-  totalPrice.innerText = '$' + total;
+  
+  const totalPrice = document.querySelector("#total-price");
+    const totalAmount = document.querySelector("#total-amount");
+
+    let total = 0;
+    let cantidadTotal = 0;
+
+    if (articulosCarrito.length > 0) {
+      for (let i = 0; i < articulosCarrito.length; i++) {
+        total += parseFloat(articulosCarrito[i].precio.replace("$", "")) * articulosCarrito[i].cantidad;
+        cantidadTotal += articulosCarrito[i].cantidad;
+      }
+      totalPrice.innerText = '$' + total;
+      totalAmount.innerText = cantidadTotal;
+    } else {
+      totalPrice.innerText = '$' + 0;
+      totalAmount.innerText = 0;
+    }
+
 }
 
 
@@ -552,17 +594,7 @@ function cartHTML() {
     const eachArticle = document.querySelector('.each-article');
     
 
-    
-    totalPrice = document.querySelector("#total-price");
-    if (articulosCarrito.length > 0) {
-      let total = 0;
-      for (let i = 0; i < articulosCarrito.length; i++) {
-        total += parseFloat(articulosCarrito[i].precio.replace("$", "")) * articulosCarrito[i].cantidad;
-        totalPrice.innerText = '$' + total;
-        console.log(total);
-      }
-    }
-    console.log(articulosCarrito);
+    actualizarPrecioTotal()
     
   })
   //cart local storage
