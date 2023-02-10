@@ -435,6 +435,15 @@ document.addEventListener("DOMContentLoaded", () => {
   cartHTML();
 })
 
+function actualizarPrecioTotal() {
+  let total = 0;
+  for (let i = 0; i < articulosCarrito.length; i++) {
+    total += parseFloat(articulosCarrito[i].precio.replace("$", "")) * articulosCarrito[i].cantidad;
+  }
+  totalPrice.innerText = '$' + total;
+}
+
+
 // delete cart articles
 cartArticles.addEventListener('click', deleteArticle)
 function deleteArticle(e) {
@@ -444,7 +453,9 @@ function deleteArticle(e) {
     //delete of the array by the data-id
     articulosCarrito = articulosCarrito.filter( product => product.id !== productId);
     cartHTML();
+    actualizarPrecioTotal();
   }
+  
 }
 
 //delete all the cart
@@ -452,6 +463,7 @@ const trashBtn = document.querySelector('#cart-trash');
 trashBtn.addEventListener('click', () => {
   articulosCarrito = [];
   cleanHTML();
+  actualizarPrecioTotal();
 })
 
 
@@ -503,8 +515,11 @@ function cartCounter() {
   document.getElementById('cart-bubble').innerHTML = articulosCarrito.length;
 }
 
+
+    
+
+
 // show the products in the cart
-let total = 0;
 function cartHTML() {
   
   //clean html 
@@ -514,8 +529,8 @@ function cartHTML() {
   // create html
   articulosCarrito.forEach( product => {
     const {imagen,titulo,precio,cantidad,id} = product;
-    let total = parseInt(precio)
-    document.getElementById("total-price").innerHTML = "$ " + total + ".00";
+    
+
     const row = document.createElement('div');
     
     
@@ -534,7 +549,20 @@ function cartHTML() {
 
     // add html to tbody
     cartArticles.appendChild(row);
-    const eachArticle = document.querySelector('.each-article')
+    const eachArticle = document.querySelector('.each-article');
+    
+
+    
+    totalPrice = document.querySelector("#total-price");
+    if (articulosCarrito.length > 0) {
+      let total = 0;
+      for (let i = 0; i < articulosCarrito.length; i++) {
+        total += parseFloat(articulosCarrito[i].precio.replace("$", "")) * articulosCarrito[i].cantidad;
+        totalPrice.innerText = '$' + total;
+        console.log(total);
+      }
+    }
+    console.log(articulosCarrito);
     
   })
   //cart local storage
@@ -555,4 +583,6 @@ function cleanHTML() {
   syncStorage();
   cartCounter();
 }
+
+
 
